@@ -1,6 +1,6 @@
 import hashlib
 import time
-import numpy as np
+import random
 from pprint import pprint
 from optparse import OptionParser
 
@@ -74,7 +74,7 @@ def calc_stats():
 start = time.time()
 while 1:
     try:
-        rand = str(np.random.randint(0,10_000_000)).encode("utf-8")
+        rand = str(random.randint(0,2**256)).encode("utf-8")
         num = hashlib.sha256(rand).hexdigest()
         if verbose == 0:
             print_red(num)
